@@ -21,7 +21,10 @@ const Wrapper = styled.div`
 
 const Link = styled.a`
   font-family: var(--font-family-logo);
-  font-size: 3rem;
+  font-size: 5rem;
+  @media(max-width: 780px){
+    font-size: 3rem;
+  }
 `;
 
 const TodaysDate = styled.p`

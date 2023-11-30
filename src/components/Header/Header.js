@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components/macro';
-import { Menu, Search, User } from 'react-feather';
+import React from 'react'
+import styled from 'styled-components/macro'
+import { Menu, Search, User } from 'react-feather'
 
-import { QUERIES } from '../../constants';
+import { QUERIES } from '../../constants'
 
-import MaxWidthWrapper from '../MaxWidthWrapper';
-import Logo from '../Logo';
-import Button from '../Button';
+import MaxWidthWrapper from '../MaxWidthWrapper'
+import Logo from '../Logo'
+import Button from '../Button'
 
 const Header = () => {
   return (
@@ -22,10 +22,13 @@ const Header = () => {
             </button>
           </ActionGroup>
           <ActionGroup>
-            <button>
+            <MobileBtn>
               <User size={24} />
-            </button>
-           <Button>Subscribe</Button>
+            </MobileBtn>
+            <DesktopBtnsWrapper>
+              <Button>Subscribe</Button>
+              <StyledAnchor href="">Already a subscriber?</StyledAnchor>
+            </DesktopBtnsWrapper>
           </ActionGroup>
         </Row>
       </SuperHeader>
@@ -33,19 +36,26 @@ const Header = () => {
         <Logo />
       </MainHeader>
     </header>
-  );
-};
+  )
+}
 
 const SuperHeader = styled.div`
   padding: 16px 0;
-  background: var(--color-gray-900);
-  color: white;
-`;
+  color: black;
+  position: absolute;
+  top: 60px;
+  width: 100%;
+  @media (max-width: 1000px) {
+    color: white;
+    position:initial ;
+    background: var(--color-gray-900);
+  }
+`
 
 const Row = styled(MaxWidthWrapper)`
   display: flex;
   justify-content: space-between;
-`;
+`
 
 const ActionGroup = styled.div`
   display: flex;
@@ -58,7 +68,30 @@ const ActionGroup = styled.div`
   svg {
     display: block;
   }
-`;
+`
+const DesktopBtnsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: 700px) {
+    display: none;
+  }
+`
+const MobileBtn = styled.button`
+  display: none;
+  @media (max-width: 700px) {
+    display: block;
+  }
+`
+const StyledAnchor = styled.a`
+  color: var(--gray-900, #2b2826);
+  font-family: Crimson Text;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: 400;
+  line-height: 22px; /* 157.143% */
+  text-decoration-line: underline;
+`
 
 const MainHeader = styled(MaxWidthWrapper)`
   display: flex;
@@ -66,6 +99,6 @@ const MainHeader = styled(MaxWidthWrapper)`
   justify-content: center;
   margin-top: 32px;
   margin-bottom: 48px;
-`;
+`
 
-export default Header;
+export default Header
