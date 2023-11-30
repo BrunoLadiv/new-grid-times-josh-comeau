@@ -31,10 +31,7 @@ const MainStoryGrid = () => {
         <StoryList>
           {OPINION_STORIES.map((story, index) => (
             <VeticalStoryWrapper key={story.id}>
-              <OpinionStory
-                
-                {...story}
-              />
+              <OpinionStory {...story} />
             </VeticalStoryWrapper>
           ))}
         </StoryList>
